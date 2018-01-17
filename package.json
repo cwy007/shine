@@ -19,6 +19,13 @@
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^2.0.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.9",
+    "testdouble": "^3.3.2",
     "webpack-dev-server": "^2.10.1"
   }
 }
