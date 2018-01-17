@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 feature "Customer Search" do
-
-  # setup and tests will go here...
-
   def create_test_user(email: , password: )
     User.create!(
       email: email,
@@ -90,6 +87,17 @@ feature "Customer Search" do
       expect(list_group_items[1]).to have_content("Dobbs")
       expect(list_group_items[3]).to have_content("I.T.")
       expect(list_group_items[3]).to have_content("Pat")
+    end
+
+    click_on "View Details...", match: :first
+    customer = Customer.find_by!(email: "pat123@somewhere.net")
+    
+    within "section.customer-details" do
+      expect(page).to have_content(customer.id)
+      expect(page).to have_content(customer.first_name)
+      expect(page).to have_content(customer.last_name)
+      expect(page).to have_content(customer.email)
+      expect(page).to have_content(customer.username)
     end
   end
 end
