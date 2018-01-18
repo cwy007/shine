@@ -21,7 +21,9 @@ http://localhost:5000
 ```
 
 ## 2.common directives
+
 1. entity relationship diagrams
+
 ```ruby
 # gem 'rails-erd'
 rails erd attributes=content,primary_keys,foreign_keys
@@ -44,4 +46,23 @@ sql> EXPLAIN ANALYZE SELECT * FROM address WHERE id = 2000;
 
 sql> EXPLAIN ANALYZE SELECT * FROM states WHERE id = 5;
 
+```
+3. create a new customer
+
+```sql
+insert into customers(
+  first_name, last_name, email, username, created_at, updated_at)
+values (
+  'Dave', 'Copeland', 'dave@dave.dave', 'davetron5000', now(), now());
+
+select id from customers where username = 'davetron5000';
+
+insert into customers_billing_addresses(
+  customer_id, address_id)
+values (388399, 1);
+
+-- why "primary" need Double quotation marks "" ?
+insert into customers_shipping_addresses(
+  customer_id, address_id, "primary")
+values(388399, 1, true);
 ```
