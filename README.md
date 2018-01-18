@@ -1,24 +1,47 @@
-# README
+## 1. this project is the source code of book
+  [Rails, Angular, Postgres, and Bootstrap 2nd](https://pragprog.com/book/dcbang2/rails-angular-postgres-and-bootstrap-second-edition)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+how to run this project
 
-Things you may want to cover:
+```ruby
+# first clone this project
+$ git clone git@github.com:cwy007/shine.git
 
-* Ruby version
+# enter project
+$ cd shine
 
-* System dependencies
+$ bundle install
+$ yarn install
 
-* Configuration
+# start server
+$ foreman start
 
-* Database creation
+# then visit
+http://localhost:5000
+```
 
-* Database initialization
+## 2.common directives
+1. entity relationship diagrams
+```ruby
+# gem 'rails-erd'
+rails erd attributes=content,primary_keys,foreign_keys
 
-* How to run the test suite
+```
+https://voormedia.github.io/rails-erd/customise.html
 
-* Services (job queues, cache servers, search engines, etc.)
+2. query performance
 
-* Deployment instructions
+```sql
+$ rails dbconsole
 
-* ...
+sql> EXPLAIN ANALYZE SELECT * FROM customers WHERE id = 2000;
+
+sql> EXPLAIN ANALYZE SELECT * FROM customers_billings_address WHERE customer_id = 2000;
+
+sql> EXPLAIN ANALYZE SELECT * FROM customers_shippings_address WHERE customer_id = 2000;
+
+sql> EXPLAIN ANALYZE SELECT * FROM address WHERE id = 2000;
+
+sql> EXPLAIN ANALYZE SELECT * FROM states WHERE id = 5;
+
+```
