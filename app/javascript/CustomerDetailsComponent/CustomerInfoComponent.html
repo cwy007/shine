@@ -6,10 +6,14 @@
   <section class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        <div class="form-group">
+        <div bind-class="(firstName.invalid && firstName.dirty) ? 'form-group has-warning' : 'form-group'">
           <label class="sr-only" for="first-name">First Name</label>
           <input class="form-control" type="text" name="first-name"
-                 bindon-ngModel="customer.first_name">
+                 bindon-ngModel="customer.first_name"
+                 required ref-firstName="ngModel">
+          <aside class="alert alert-danger" *ngIf="firstName.invalid && firstName.dirty">
+            <small>This is required</small>
+          </aside>
         </div>
       </div><!-- /.col-md-4 -->
 
