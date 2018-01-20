@@ -1,0 +1,16 @@
+<div bind-class="( model.invalid && model.dirty ) ? 'form-group has-warning' : 'form-group'">
+  <label attr.for="{{field_name}}" class="sr-only">
+    {{label}}
+  </label>
+  <div bind-class="addon ? 'input-group' : ''">
+    <div *ngIf="addon" class="input-group-addon">
+      {{addon}}
+    </div>
+    <input type="text" class="form-control" attr.name="{{field_name}}"
+           required bindon-ngModel="object[field_name]"
+           ref-model="ngModel">
+  </div>
+  <aside *ngIf="model.invalid && model.dirty" class="alert alert-danger">
+    <small>This is required</small>
+  </aside>
+</div>

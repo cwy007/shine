@@ -12,7 +12,8 @@ import { CustomerSearchComponent  } from "CustomerSearchComponent";
 import { CustomerDetailsComponent } from "CustomerDetailsComponent";
 import { CustomerInfoComponent    } from "CustomerDetailsComponent/CustomerInfoComponent";
 import { AddressComponent         } from "CustomerDetailsComponent/AddressComponent";
-import { CreditCardComponent       } from "CustomerDetailsComponent/CreditCardComponent";
+import { CreditCardComponent      } from "CustomerDetailsComponent/CreditCardComponent";
+import { TextFieldComponent       } from "TextFieldComponent";
 
 var AppComponent = Component({
   selector: "shine-customers-app",
@@ -78,7 +79,7 @@ var CustomerAppModule = NgModule({
   declarations: [
     CustomerSearchComponent, CustomerDetailsComponent,
     CustomerInfoComponent, AddressComponent, CreditCardComponent,
-    AppComponent ],
+    TextFieldComponent, AppComponent ],
   bootstrap:    [ AppComponent ]
 }).Class({
   constructor: function() {}

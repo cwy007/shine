@@ -6,39 +6,27 @@
   <section class="panel-body">
     <div class="row">
       <div class="col-md-4">
-        <div bind-class="(firstName.invalid && firstName.dirty) ? 'form-group has-warning' : 'form-group'">
-          <label class="sr-only" for="first-name">First Name</label>
-          <input class="form-control" type="text" name="first-name"
-                 bindon-ngModel="customer.first_name"
-                 required ref-firstName="ngModel">
-          <aside class="alert alert-danger" *ngIf="firstName.invalid && firstName.dirty">
-            <small>This is required</small>
-          </aside>
-        </div>
+        <shine-text-field bind-object="customer" field_name="first_name"
+                          label="First Name">
+        </shine-text-field>
       </div><!-- /.col-md-4 -->
 
       <div class="col-md-4">
-        <div class="form-group">
-          <label class="sr-only" for="last-name">Last Name</label>
-          <input class="form-control" type="text" name="last-name"
-                 bindon-ngModel="customer.last_name">
-        </div>
+        <shine-text-field bind-object="customer" field_name="last_name"
+                          label="Last Name">
+        </shine-text-field>
       </div><!-- /.col-md-4 -->
 
       <div class="col-md-4">
-        <div class="input-group">
-          <span class="input-group-addon">@</span>
-          <input type="text" class="form-control" name="username"
-                 bindon-ngModel="customer.username">
-        </div>
+        <shine-text-field bind-object="customer" field_name="username"
+                          label="Username" addon="@">
+        </shine-text-field>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
 
-    <div class="form-group">
-      <label for="email" class="sr-only">Email</label>
-      <input type="text" class="form-control" name="email"
-             bindon-ngModel="customer.email">
-    </div>
+    <shine-text-field bind-object="customer" field_name="email"
+                      label="Email">
+    </shine-text-field>
   </section>
 
   <footer class="panel-footer">
