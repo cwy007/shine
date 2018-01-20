@@ -1,39 +1,43 @@
-<article class="panel panel-primary">
+<article class="panel panel-primary customer-info" *ngIf="customer">
   <header class="panel-heading">
     <h3 class="panel-title">Customer</h3>
   </header>
-  
+
   <section class="panel-body">
     <div class="row">
       <div class="col-md-4">
         <div class="form-group">
           <label class="sr-only" for="first-name">First Name</label>
-          <input class="form-control" type="text" name="first-name" value="Bob">
+          <input class="form-control" type="text" name="first-name"
+                 bindon-ngModel="customer.first_name">
         </div>
       </div><!-- /.col-md-4 -->
 
       <div class="col-md-4">
         <div class="form-group">
           <label class="sr-only" for="last-name">Last Name</label>
-          <input class="form-control" type="text" name="last-name" value="Jones">
+          <input class="form-control" type="text" name="last-name"
+                 bindon-ngModel="customer.last_name">
         </div>
       </div><!-- /.col-md-4 -->
 
       <div class="col-md-4">
         <div class="input-group">
           <span class="input-group-addon">@</span>
-          <input type="text" class="form-control" name="username" value="bobert123">
+          <input type="text" class="form-control" name="username"
+                 bindon-ngModel="customer.username">
         </div>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->
 
     <div class="form-group">
       <label for="email" class="sr-only">Email</label>
-      <input type="text" class="form-control" name="email" value="bobbyj@somewhere.net">
+      <input type="text" class="form-control" name="email"
+             bindon-ngModel="customer.email">
     </div>
   </section>
 
   <footer class="panel-footer">
-    <label for="joined">Joined</label> 12/13/2014
+    <label for="joined">Joined</label> {{customer.joined_at}}
   </footer>
 </article>

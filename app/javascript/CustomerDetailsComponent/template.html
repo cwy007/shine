@@ -2,16 +2,11 @@
   <form>
     <div class="row">
       <div class="col-md-6">
-        <shine-customer-info></shine-customer-info>
+        <shine-customer-info bind-customer="customer"></shine-customer-info>
 
-        <article class="panel panel-default">
-          <header class="panel-heading">
-            <h3 class="panel-title">Shipping Address</h3>
-          </header>
-          <section class="panel-body">
-            <shine-address></shine-address>
-          </section>
-        </article>
+        <shine-address addressType="Shipping"
+                       bind-address="customer.shipping_address">
+        </shine-address>
       </div><!-- /.col-md-6 -->
 
       <div class="col-md-6">
@@ -23,15 +18,9 @@
           <section class="panel-body">
             <shine-credit-card></shine-credit-card>
             <hr>
-            <div class="well well-sm">
-              <h3 class="h4">
-                Billing Address
-                <small>
-                  <input type="checkbox" name="checkbox"> Same as shipping?
-                </small>
-              </h3>
-              <shine-address></shine-address>
-            </div>
+            <shine-address addressType="Billing"
+                           bind-address="customer.billing_address">
+            </shine-address>
           </section>
         </article>
       </div><!-- /.col-md-6 -->
