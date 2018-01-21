@@ -1,4 +1,4 @@
-<div bind-class="modelValid(model) ? 'form-group has-warning' : 'form-group'">
+<div bind-class="!modelValid(model) ? 'form-group has-warning' : 'form-group'">
   <label attr.for="{{field_name}}" class="sr-only">
     {{label}}
   </label>
@@ -12,7 +12,8 @@
            required
            bind-pattern="validationPattern()"
            bindon-ngModel="object[field_name]"
-           ref-model="ngModel">
+           ref-model="ngModel"
+           on-blur="blur(model)">
   </div>
   <aside *ngIf="!compact && !modelValid(model)" class="alert alert-danger">
     <small *ngIf="pattern">This is not a {{label}}</small>

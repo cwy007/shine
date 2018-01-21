@@ -4,24 +4,28 @@
   </header>
   <section class="panel-body">
     <shine-text-field bind-object="address" field_name="street"
-                      label="Street Address">
+                      label="Street Address"
+                      on-valueChanged="save($event)">
     </shine-text-field>
     <div class="row">
       <div class="col-md-6">
         <shine-text-field bind-object="address" field_name="city"
-                          label="City">
+                          label="City"
+                          on-valueChanged="save($event)">
         </shine-text-field>
       </div><!-- /.col-md-6 -->
 
       <div class="col-md-2">
         <shine-text-field bind-object="address" field_name="state"
-                          label="State" compact="true">
+                          label="State" compact="true"
+                          on-valueChanged="save($event)">
         </shine-text-field>
       </div><!-- /.col-md-2 -->
 
       <div class="col-md-4">
         <shine-text-field bind-object="address" field_name="zipcode"
-                          label="Zip Code" pattern="\d\d\d\d\d(-\d\d\d\d)?">
+                          label="Zip Code" pattern="\d\d\d\d\d(-\d\d\d\d)?"
+                          on-valueChanged="save($event)">
         </shine-text-field>
       </div><!-- /.col-md-4 -->
     </div><!-- /.row -->

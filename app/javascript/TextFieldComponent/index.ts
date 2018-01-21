@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { EventEmitter,
+         Component } from "@angular/core";
 import   template    from "./template.html";
 
 var TextFieldComponent = Component({
@@ -11,6 +12,9 @@ var TextFieldComponent = Component({
     "addon",
     "pattern",
     "compact"
+  ],
+  outputs: [
+    "valueChanged"
   ]
 }).Class({
   constructor: [
@@ -21,6 +25,7 @@ var TextFieldComponent = Component({
       this.addon      = null;
       this.pattern    = null;
       this.compact    = false;
+      this.valueChanged = new EventEmitter();
     }
   ],
   modelValid: function(model) {
@@ -31,6 +36,24 @@ var TextFieldComponent = Component({
       return this.pattern;
     } else {
       return "^.*$";
+    }
+  },
+  ngOnInit: function() {
+    if (this.object && this.field_name) {
+      this.originalValue = this.object[this.field_name];
+    } else {
+      this.originalValue = null;
+    }
+  },
+  blur: function(model) {
+    if (this.modelValid(model)) {
+      if (this.originalValue != model.value) {
+        this.valueChanged.emit({
+          field_name: this.field_name,
+          value: model.value
+        });
+        this.originalValue = model.value;
+      }
     }
   }
 });

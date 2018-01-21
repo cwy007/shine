@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { EventEmitter,
+         Component } from "@angular/core";
 import   template    from "./CustomerInfoComponent.html";
 
 var CustomerInfoComponent = Component({
@@ -7,13 +8,20 @@ var CustomerInfoComponent = Component({
   inputs: [
     "customer"
   ],
+  outputs: [
+    "customerInfoChanged"
+  ],
   template: template
 }).Class({
   constructor: [
     function() {
-      this.customer = null;
+      this.customer            = null;
+      this.customerInfoChanged = new EventEmitter();
     }
-  ]
-})
+  ],
+  save: function(update) {
+    this.customerInfoChanged.emit(update);
+  }
+});
 
 export { CustomerInfoComponent }
