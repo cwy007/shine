@@ -8,21 +8,21 @@
                       on-valueChanged="save($event)">
     </shine-text-field>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <shine-text-field bind-object="address" field_name="city"
                           label="City"
                           on-valueChanged="save($event)">
         </shine-text-field>
       </div><!-- /.col-md-6 -->
 
-      <div class="col-md-2">
+      <div class="col-md-2 col-xs-4">
         <shine-text-field bind-object="address" field_name="state"
                           label="State" compact="true"
                           on-valueChanged="save($event)">
         </shine-text-field>
       </div><!-- /.col-md-2 -->
 
-      <div class="col-md-4">
+      <div class="col-md-4 col-xs-8">
         <shine-text-field bind-object="address" field_name="zipcode"
                           label="Zip Code" pattern="\d\d\d\d\d(-\d\d\d\d)?"
                           on-valueChanged="save($event)">
