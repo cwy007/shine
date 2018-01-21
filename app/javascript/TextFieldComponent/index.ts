@@ -8,7 +8,9 @@ var TextFieldComponent = Component({
     "object",
     "field_name",
     "label",
-    "addon"
+    "addon",
+    "pattern",
+    "compact"
   ]
 }).Class({
   constructor: [
@@ -17,8 +19,20 @@ var TextFieldComponent = Component({
       this.field_name = null;
       this.label      = null;
       this.addon      = null;
+      this.pattern    = null;
+      this.compact    = false;
     }
-  ]
+  ],
+  modelValid: function(model) {
+    return !(model.invalid && model.dirty);
+  },
+  validationPattern: function() {
+    if (this.pattern) {
+      return this.pattern;
+    } else {
+      return "^.*$";
+    }
+  }
 });
 
 export { TextFieldComponent };
